@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
-// import { Router } from 'react-router';
 import Router from './Router';
-import GlobalStyles from './stlyes/Globalstyles';
-import theme from './stlyes/Theme';
+import GlobalStyles from './styles/Globalstyles';
+import theme from './styles/Theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
