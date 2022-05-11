@@ -1,7 +1,8 @@
 import React from 'react';
+import { URI } from './authData';
 
 const Login = () => {
-  return <div>Login</div>;
+  return <a href={URI}>로그인</a>;
 };
 
 export default Login;
