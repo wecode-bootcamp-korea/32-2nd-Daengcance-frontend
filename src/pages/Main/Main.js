@@ -139,6 +139,7 @@ export default Main;
 
 const MainBackground = styled.div`
   width: 100%;
+  padding-bottom: 55px;
   background-color: ${props =>
     props.isDarkMode ? 'rgba(0,0,0,80%)' : 'white;'};
   color: ${props => props.isDarkMode && 'white'};

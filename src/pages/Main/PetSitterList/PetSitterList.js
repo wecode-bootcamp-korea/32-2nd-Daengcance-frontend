@@ -14,6 +14,4 @@ const PetSitterList = ({ isDarkMode, data }) => {
 
 export default PetSitterList;
 
-const PetSitterItems = styled.div`
-  margin-top: 55px;
-`;
+const PetSitterItems = styled.div``;

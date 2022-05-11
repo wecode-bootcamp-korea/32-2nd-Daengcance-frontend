@@ -20,7 +20,7 @@ const Router = () => {
           path="/petsitters/list"
           element={<Main isDarkMode={isDarkMode} />}
         />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="/review" element={<Review />} />
         <Route path="/login/kakao" element={<Loginkakao />} />
         <Route path="/mypage" element={<MyPage />} />
