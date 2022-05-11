@@ -140,8 +140,8 @@ const NavItem = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 150px;
-  height: auto;
+  width: 140px;
+  height: 90px;
   @media screen and (max-width: 900px) {
     width: 90px;
     margin-left: 15%;
