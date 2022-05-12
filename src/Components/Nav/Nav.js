@@ -100,6 +100,7 @@ const NavBox = styled.nav`
     props.darkMode ? 'rgba(0,0,0,80%)' : 'rgba(255,255,255,90%)'};
   border-bottom: ${props => (props.scrollY > 0 ? '1px solid #e5e5e5' : 'none')};
   transition: all 200ms ease-in;
+  z-index: 2;
 `;
 
 const NavItem = styled.div`
