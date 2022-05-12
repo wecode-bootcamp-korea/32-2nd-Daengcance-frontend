@@ -16,7 +16,7 @@ const Router = () => {
       <Nav isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="/review" element={<Review />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login/kakao" element={<Loginkakao />} />
