@@ -5,6 +5,7 @@ import Detail from './pages/Detail/Detail';
 import Review from './pages/Review/Review';
 import Login from './pages/Login/Login';
 import Loginkakao from './pages/Loginkakao/Loginkakao';
+import Footer from './Components/Footer/Footer';
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/login/kakao" element={<Loginkakao />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
