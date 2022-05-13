@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Nav = () => {
+const Nav = ({ setIsDarkMode, isDarkMode }) => {
   const [scrollY, setScrollY] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // const [isDarkMode, setIsDarkMode] = useState(false);
   const [isChatValue, setIsChatValue] = useState(false);
 
   const isBtnVisible = scrollY > 150;
@@ -40,7 +40,7 @@ const Nav = () => {
       <NavItem>
         <Link to="/">
           <Logo
-            src={isDarkMode ? `images/Logo.png` : `images/Logo3.png`}
+            src={isDarkMode ? `/images/Logo.png` : `/images/Logo3.png`}
             alt="HomepageLogo"
           />
         </Link>

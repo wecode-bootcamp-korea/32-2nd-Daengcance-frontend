@@ -24,17 +24,10 @@ const Loginkakao = () => {
         }
       })
       .then(data => sendToken(data.access_token));
-    // .then(res => {
-    //   if (res.access_token) {
-    //     sendToken(res.access_token);
-    //   } else {
-    //     alert('연결안된듯?');
-    //   }
-    // });
   }, []);
 
   const sendToken = kakaoAccessToken => {
-    fetch(`http://10.58.4.175:8000/users/login/kakao`, {
+    fetch(`http://10.58.4.134:8000/users/login/kakao`, {
       method: 'POST',
       headers: {
         Authorization: kakaoAccessToken,
@@ -43,6 +36,7 @@ const Loginkakao = () => {
       .then(res => res.json())
       .then(res => {
         localStorage.setItem('token', res.access_token);
+        localStorage.setItem('nickname', res.nickname);
         alert('환영합니다!');
         navigate('/');
       });
