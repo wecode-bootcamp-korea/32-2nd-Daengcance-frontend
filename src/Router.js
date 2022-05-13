@@ -6,10 +6,12 @@ import Review from './pages/Review/Review';
 import Login from './pages/Login/Login';
 import Loginkakao from './pages/Loginkakao/Loginkakao';
 import Footer from './Components/Footer/Footer';
+import Nav from './Components/Nav/Nav';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/detail/:id" element={<Detail />} />
