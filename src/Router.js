@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Nav from './Components/Nav/Nav';
 import Main from './pages/Main/Main';
 import Detail from './pages/Detail/Detail';
 import Review from './pages/Review/Review';
 import Login from './pages/Login/Login';
 import Loginkakao from './pages/Loginkakao/Loginkakao';
 import Footer from './Components/Footer/Footer';
-import Nav from './Components/Nav/Nav';
 
 const Router = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   return (
     <BrowserRouter>
-      <Nav />
+      <Nav isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/detail/:id" element={<Detail />} />
@@ -19,7 +21,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/login/kakao" element={<Loginkakao />} />
       </Routes>
-      <Footer />
+      <Footer isDarkMode={isDarkMode} />
     </BrowserRouter>
   );
 };
