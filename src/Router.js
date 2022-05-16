@@ -7,6 +7,7 @@ import Review from './pages/Review/Review';
 import Login from './pages/Login/Login';
 import Loginkakao from './pages/Loginkakao/Loginkakao';
 import Footer from './Components/Footer/Footer';
+import MyPage from './pages/MyPage/MyPage';
 
 const Router = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -20,6 +21,7 @@ const Router = () => {
         <Route path="/review" element={<Review />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login/kakao" element={<Loginkakao />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
       <Footer isDarkMode={isDarkMode} />
     </BrowserRouter>
