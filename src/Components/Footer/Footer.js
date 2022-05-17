@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import { URI } from '../../pages/Login/authData';
 import { INFO_LIST, SERVICE_LIST, COMPANY_LIST } from './footerData';
+import styled from 'styled-components';
 
 const Footer = ({ isDarkMode }) => {
   const navigate = useNavigate();
@@ -71,6 +71,9 @@ const StyledFooter = styled.div`
   border-top: 1px solid rgb(231, 233, 235);
   background-color: ${props => (props.isDarkMode ? 'rgba(0,0,0,80%)' : '#fff')};
   transition: all 200ms ease-in;
+  @media (max-width: 1000px) {
+    padding: 300px 0px;
+  }
 `;
 
 const Container = styled.div`
