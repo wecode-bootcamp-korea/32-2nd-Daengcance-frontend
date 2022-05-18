@@ -4,7 +4,6 @@ import Nav from './Components/Nav/Nav';
 import Main from './pages/Main/Main';
 import Detail from './pages/Detail/Detail';
 import Review from './pages/Review/Review';
-import Login from './pages/Login/Login';
 import Loginkakao from './pages/Loginkakao/Loginkakao';
 import Footer from './Components/Footer/Footer';
 import MyPage from './pages/MyPage/MyPage';
@@ -19,7 +18,6 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="/review" element={<Review />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/login/kakao" element={<Loginkakao />} />
         <Route path="/mypage" element={<MyPage />} />
       </Routes>

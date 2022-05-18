@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { URI } from '../../pages/Loginkakao/authData';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = ({ setIsDarkMode, isDarkMode }) => {
   const [scrollY, setScrollY] = useState(0);
-  // const [isDarkMode, setIsDarkMode] = useState(false);
   const [isChatValue, setIsChatValue] = useState(false);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const isBtnVisible = scrollY > 150;
+  //페이지이동시 탑으로
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -35,6 +41,14 @@ const Nav = ({ setIsDarkMode, isDarkMode }) => {
     setScrollY(0);
   };
 
+  const isLogin = localStorage.getItem('token');
+  const userNickname = localStorage.getItem('nickname');
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('nickname');
+    navigate('/');
+  };
   return (
     <NavBox scrollY={scrollY} darkMode={isDarkMode}>
       <NavItem>
@@ -56,11 +70,26 @@ const Nav = ({ setIsDarkMode, isDarkMode }) => {
           >
             채팅 문의
           </Menu>
+          {isLogin && (
+            <Menu
+              onClick={() => {
+                navigate('/mypage');
+              }}
+            >
+              {userNickname}님
+            </Menu>
+          )}
+
           <Login darkMode={isDarkMode}>
-            <Link to="/login">로그인</Link>
+            {isLogin ? (
+              <div onClick={handleLogout}>로그아웃</div>
+            ) : (
+              <a href={URI}>로그인</a>
+            )}
           </Login>
         </NavMenu>
       </NavItem>
+
       <DarkModeBtn
         onClick={() => {
           setIsDarkMode(!isDarkMode);
