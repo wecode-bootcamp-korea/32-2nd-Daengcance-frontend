@@ -97,9 +97,7 @@ const UsageDate = ({ plusCount, minusCount, setData, data }) => {
             +
           </UsagePlusCountBtn>
         </HandleCount>
-        {count === 0 ? (
-          <div />
-        ) : (
+        {count !== 0 && (
           <>
             <PriceAmount>
               <p>합계금액</p>
