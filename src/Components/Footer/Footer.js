@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { URI } from '../../pages/Login/authData';
-import { INFO_LIST, SERVICE_LIST, COMPANY_LIST } from './footerData';
 import styled from 'styled-components';
+import { URI } from '../../pages/Loginkakao/authData';
+import { INFO_LIST, SERVICE_LIST, COMPANY_LIST } from './footerData';
 
 const Footer = ({ isDarkMode }) => {
   const navigate = useNavigate();

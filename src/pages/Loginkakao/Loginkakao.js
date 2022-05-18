@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { REST_API_KEY, REDIRECT_URI } from '../Login/authData';
+import { REST_API_KEY, REDIRECT_URI } from './authData';
 
 const Loginkakao = () => {
   const navigate = useNavigate();
@@ -20,14 +20,14 @@ const Loginkakao = () => {
         if (res.status === 200) {
           return res.json();
         } else {
-          alert('통신 안된듯?');
+          alert('통신을 다시 시도해주십시오.');
         }
       })
       .then(data => sendToken(data.access_token));
   }, []);
 
   const sendToken = kakaoAccessToken => {
-    fetch(`http://10.58.4.134:8000/users/login/kakao`, {
+    fetch(`http://10.58.0.52:8000/users/login/kakao`, {
       method: 'POST',
       headers: {
         Authorization: kakaoAccessToken,
