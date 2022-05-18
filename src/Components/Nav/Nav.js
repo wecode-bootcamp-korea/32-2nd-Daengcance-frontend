@@ -104,7 +104,7 @@ const Nav = ({ setIsDarkMode, isDarkMode }) => {
       {isChatValue && (
         <Chat>
           <iframe
-            src="https://service.dongledongle.com/DaengCance"
+            src="https://service.dongzledongle.com/DaengCance"
             frameborder="0"
             width="100%"
             height="500"
@@ -129,7 +129,7 @@ const NavBox = styled.nav`
     props.darkMode ? 'rgba(0,0,0,80%)' : 'rgba(255,255,255,90%)'};
   border-bottom: ${props => (props.scrollY > 0 ? '1px solid #e5e5e5' : 'none')};
   transition: all 200ms ease-in;
-  z-index: 2;
+  z-index: 1000;
 `;
 
 const NavItem = styled.div`
