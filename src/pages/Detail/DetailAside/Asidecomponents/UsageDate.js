@@ -4,8 +4,10 @@ import { addDays } from 'date-fns';
 import styled from 'styled-components';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import { useNavigate } from 'react-router';
 
 const UsageDate = ({ plusCount, minusCount, setData, data }) => {
+  const navigate = useNavigate();
   const { count, price } = data;
   const [date, setDate] = useState([
     {
@@ -49,6 +51,7 @@ const UsageDate = ({ plusCount, minusCount, setData, data }) => {
             convertDateString.endDate +
             '까지 예약이 요청되었습니다.'
         );
+        navigate('/mypage');
         setDate([
           {
             startDate: new Date(),

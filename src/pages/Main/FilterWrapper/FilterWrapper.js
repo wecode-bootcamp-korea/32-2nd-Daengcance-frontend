@@ -128,6 +128,7 @@ const LocationInput = styled.input.attrs(() => ({
   margin: 0 12px;
   font-size: 17px;
   border: none;
+  color: ${props => (props.isDarkMode ? '#fff' : '#757575')};
   background-color: ${props => props.isDarkMode && '#333333'};
   transition: background-color 200ms ease-in;
   &::placeholder {

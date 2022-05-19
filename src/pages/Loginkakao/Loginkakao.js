@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { REST_API_KEY, REDIRECT_URI } from './authData';
+import styled from 'styled-components';
 
 const Loginkakao = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Loginkakao = () => {
 
   useEffect(() => {
     fetch('https://kauth.kakao.com/oauth/token', {
-      method: 'POST',
+      method: 'post',
       headers: {
         'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
       },
@@ -27,8 +28,8 @@ const Loginkakao = () => {
   }, []);
 
   const sendToken = kakaoAccessToken => {
-    fetch(`http://10.58.0.52:8000/users/login/kakao`, {
-      method: 'POST',
+    fetch(`http://10.58.6.132:8000/users/login/kakao`, {
+      method: 'post',
       headers: {
         Authorization: kakaoAccessToken,
       },
@@ -37,12 +38,19 @@ const Loginkakao = () => {
       .then(res => {
         localStorage.setItem('token', res.access_token);
         localStorage.setItem('nickname', res.nickname);
-        alert('환영합니다!');
+
         navigate('/');
       });
   };
 
-  return <div>로그인중입니다</div>;
+  return <Login>로그인중입니다</Login>;
 };
 
 export default Loginkakao;
+
+const Login = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+`;
