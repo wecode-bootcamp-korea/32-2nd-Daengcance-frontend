@@ -1,21 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import ReactLoading from 'react-loading';
 import Cards from './Card/Cards';
 import Hidden from './ReviewHidden/Hidden';
 import ReviewDetail from './ReviewDetail/ReviewDetail';
-
+const INITIAL_DATA_NUMBER = 2;
+const FOOTER_HEIGHT = 359;
 const Review = () => {
-  const [mockData, setMockData] = useState(data);
+  const [mockData, setMockData] = useState(data.slice(0, 2));
   const [detailData, setDetailData] = useState(null);
   const [isModal, setIsModal] = useState(false);
   const [writeModal, setWriteModal] = useState(false);
   const [hidden, setHidden] = useState(false);
-
   const activeModal = () => {
     setIsModal(prev => !prev);
   };
-
+  // 스크롤
+  const [dataNumber, setDataNumber] = useState(INITIAL_DATA_NUMBER);
+  useEffect(() => {
+    setMockData([...data.slice(0, dataNumber)]);
+  }, [dataNumber]);
+  useEffect(() => {
+    window.addEventListener('scroll', throttle(handleScroll, 300));
+    return window.removeEventListener('scroll', throttle(handleScroll, 300));
+  }, []);
+  const throttle = (callback, ms) => {
+    let timer = null;
+    return function (...args) {
+      if (timer === null) {
+        timer = setTimeout(() => {
+          callback.apply(this, args);
+          timer = null;
+        }, ms);
+      }
+    };
+  };
+  const handleScroll = e => {
+    window.innerHeight + e.target.documentElement.scrollTop + FOOTER_HEIGHT >=
+      e.target.documentElement.scrollHeight && setDataNumber(prev => prev + 2);
+  };
   return (
     <ReviewBox>
       {isModal && (
@@ -46,12 +68,12 @@ const Review = () => {
       <WriteBox writeModal={writeModal}>
         <WriteBoxTop>
           <InputBox>
-            <p>😉 이미지를 업로드해주세요. ※필수</p>
+            <p>:윙크: 이미지를 업로드해주세요. ※필수</p>
             <InputLabel>업로드</InputLabel>
             <InputImage type="file" accept="image/*" id="InputImage" />
           </InputBox>
           <SelectBox>
-            <p>🤗 어떤 펫시터에게 맡겼었나요?</p>
+            <p>:안아주는_얼굴: 어떤 펫시터에게 맡겼었나요?</p>
             <SelectList>
               <select>
                 <option value="김춘복">김춘복</option>
@@ -107,7 +129,6 @@ const Review = () => {
     </ReviewBox>
   );
 };
-
 export default Review;
 
 const ReviewBox = styled.div`

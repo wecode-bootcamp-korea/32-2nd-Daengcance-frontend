@@ -104,7 +104,7 @@ const Nav = ({ setIsDarkMode, isDarkMode }) => {
       {isChatValue && (
         <Chat>
           <iframe
-            src="https://service.dongzledongle.com/DaengCance"
+            src="https://service.dongledongle.com/댕캉스"
             frameborder="0"
             width="100%"
             height="500"
