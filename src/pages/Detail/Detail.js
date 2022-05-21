@@ -12,7 +12,7 @@ const Detail = () => {
   console.log(detailId);
 
   useEffect(() => {
-    fetch(`http://10.58.6.190:8000/petsitters/detail/${detailId}`)
+    fetch(`http://10.58.2.75:8000/petsitters/detail/${detailId}`)
       .then(response => response.json())
       .then(data => setData(data.result));
   }, []);
