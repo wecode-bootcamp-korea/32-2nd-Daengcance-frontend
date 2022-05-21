@@ -28,7 +28,7 @@ const Loginkakao = () => {
   }, []);
 
   const sendToken = kakaoAccessToken => {
-    fetch(`http://10.58.6.132:8000/users/login/kakao`, {
+    fetch(`http://10.58.5.0:8000/users/login/kakao`, {
       method: 'post',
       headers: {
         Authorization: kakaoAccessToken,

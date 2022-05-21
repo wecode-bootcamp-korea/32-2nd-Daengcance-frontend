@@ -31,7 +31,7 @@ const Main = ({ isDarkMode }) => {
   const fetchData = async () => {
     setLoading(true);
     const response = await fetch(
-      `http://10.58.6.190:8000/petsitters/list?limit=${limit}&offset=${OFFSET_NUMBER}&${makeQueryString()}`
+      `http://10.58.2.75:8000/petsitters/list?limit=${limit}&offset=${OFFSET_NUMBER}&${makeQueryString()}`
     );
     const json = await response.json();
     setPetSitterData(json.results);
